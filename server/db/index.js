@@ -1,9 +1,13 @@
-const Sequelize = require('sequelize');
+const db = require('./database');
+const User = require('./models/User');
+const Inventory = require('./models/Inventory');
 
-const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://localhost:5432/garbguess`,
-  {
-    logging: false,
-  }
-);
-module.exports = db;
+//define our relationships in our database using sequelize
+Inventory.belongsTo(User);
+User.hasOne(Inventory);
+
+module.exports = {
+  db,
+  User,
+  Inventory,
+};
