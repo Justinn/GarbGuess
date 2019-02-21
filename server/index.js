@@ -3,6 +3,12 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 
+//For our API
+app.use('/api', require('./api'));
+
+//For our assets
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
 //404 Error handling
 app.use((req, res, next) => {
   if (path.extname(req.path).length) {
