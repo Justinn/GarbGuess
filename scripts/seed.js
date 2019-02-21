@@ -13,7 +13,7 @@ const seed = async () => {
   db.close();
 };
 
-//Seed the databse with an error handler
+//Seed the database and handle errors
 seed().catch(err => {
   console.error('Something went wrong!');
   console.error(err);

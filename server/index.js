@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 // logging middleware
-app.use(morgan);
+app.use(morgan('dev'));
 
 // body parsing middleware
 app.use(express.json());
