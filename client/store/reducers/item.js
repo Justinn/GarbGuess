@@ -1,6 +1,6 @@
 const GOT_ALL_ITEMS = 'GOT_ALL_ITEMS';
 
-const gotAllItems = (items) => {
+const gotAllItems = items => {
   return {
     type: GOT_ALL_ITEMS,
     items,

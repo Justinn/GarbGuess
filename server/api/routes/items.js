@@ -10,4 +10,16 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const user = await Item.findOne({
+      where: { id: id },
+    });
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
