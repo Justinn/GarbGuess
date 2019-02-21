@@ -8,26 +8,26 @@ const gotInventory = inventory => {
   };
 };
 
-const addedToInventory = id => {
+const addedToInventory = item => {
   return {
     type: ADDED_TO_INVENTORY,
-    id,
+    item,
   };
 };
 
-export const getInventoryByUserId = id => {
+export const getInventory = () => {
   return async (dispatch, getState, { axios }) => {
-    const { data } = await axios.get('/api/users/1/inventory');
-    dispatch(gotAllStudents(data));
+    const { data } = await axios.get('/api/users/1');
+    dispatch(gotUser(data));
   };
 };
 
 export const addItemToInventory = id => {
-    return async (dispatch, getState, { axios }) => {
-        const { data } = await axios.get(`/api/items/${id}`);
-        dispatch(addedToInventory(data));
-      };
-}
+  return async (dispatch, getState, { axios }) => {
+    const { data } = await axios.get(`/api/items/${id}`);
+    dispatch(addedToInventory(data));
+  };
+};
 
 const initialState = {
   user: {},
@@ -38,6 +38,8 @@ const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_INVENTORY:
       return { ...state, inventory: action.inventory };
+    case ADDED_TO_INVENTORY:
+      return { ...state, inventory: [...state.inventory, action.item] };
     default:
       return state;
   }
