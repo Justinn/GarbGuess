@@ -7,7 +7,8 @@
     "build-watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "dev-start": "npm run build-watch & nodemon server",
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
+    "dev-start": "npm run build-watch & npm run start-server",
     "seed": "node scripts/seed"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "@babel/preset-env": "^7.0.0-beta.55",
     "@babel/preset-react": "^7.0.0-beta.55",
     "@babel/register": "^7.0.0-beta.55",
+    "@material-ui/core": "^3.9.2",
     "babel-loader": "^8.0.5",
     "express": "^4.16.4",
     "morgan": "^1.9.1",
