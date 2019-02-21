@@ -5,9 +5,9 @@ Ever had a hard time deciding what to wear and when? Keeping track of your cloth
 ## How to run
 In the project directory, you can run:
 
-### `npm dev-start`
+### `npm run dev-start`
 
-Runs the application in development mode - It will build the client and update in real-time.
+Runs the application in development mode - It will build the client/server and update in real-time.
 
 ### `npm start`
 
