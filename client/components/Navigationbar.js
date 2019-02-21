@@ -23,6 +23,9 @@ class Navigationbar extends React.Component {
             <Button component={Link} to="/items" color="inherit">
               Available Items
             </Button>
+            <Button component={Link} to="/login" color="inherit">
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
