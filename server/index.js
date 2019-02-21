@@ -3,6 +3,13 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 
+// logging middleware
+app.use(morgan);
+
+// body parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //For our API
 app.use('/api', require('./api'));
 

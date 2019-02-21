@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "dev-start": "nodemon server"
+    "dev-start": "nodemon server",
+    "seed": "node scripts/seed"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "express": "^4.16.4",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
+    "pg": "^7.8.1",
     "sequelize": "^4.42.0"
   }
 }
