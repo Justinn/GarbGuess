@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "dev-start": "nodemon server",
+    "dev-start": "npm run build-watch & nodemon server",
     "seed": "node scripts/seed"
   },
   "repository": {
@@ -20,10 +21,30 @@
   },
   "homepage": "https://github.com/Justinn/GarbGuess#readme",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.54",
+    "@babel/plugin-proposal-decorators": "7.0.0-beta.54",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0-beta.54",
+    "@babel/plugin-proposal-function-sent": "7.0.0-beta.54",
+    "@babel/plugin-proposal-json-strings": "7.0.0-beta.54",
+    "@babel/plugin-proposal-numeric-separator": "7.0.0-beta.54",
+    "@babel/plugin-proposal-throw-expressions": "7.0.0-beta.54",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.54",
+    "@babel/plugin-syntax-import-meta": "7.0.0-beta.54",
+    "@babel/polyfill": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
+    "@babel/register": "^7.0.0-beta.55",
+    "babel-loader": "^8.0.5",
     "express": "^4.16.4",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "pg": "^7.8.1",
-    "sequelize": "^4.42.0"
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-router-dom": "^4.3.1",
+    "sequelize": "^4.42.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   }
 }

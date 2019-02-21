@@ -16,17 +16,6 @@ app.use('/api', require('./api'));
 //For our assets
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-//404 Error handling
-app.use((req, res, next) => {
-  if (path.extname(req.path).length) {
-    const err = new Error('Not found');
-    err.status = 404;
-    next(err);
-  } else {
-    next();
-  }
-});
-
 //Everything's OK
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'));
