@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../database');
 
-const Inventory = db.define('inventory', {
+const Item = db.define('item', {
   name: {
     type: Sequelize.STRING,
     validate: {
@@ -32,4 +32,4 @@ const Inventory = db.define('inventory', {
   },
 });
 
-module.exports = Inventory;
+module.exports = Item;

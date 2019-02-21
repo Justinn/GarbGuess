@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Inventory } = require('../../db');
+const { User, Item } = require('../../db');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -15,7 +15,7 @@ router.get('/:id', async (req, res, next) => {
     const id = req.params.id
     const user = await User.findOne({
       where: { id: id },
-      include: [Inventory],
+      include: [Item],
     });
     res.send(user)
   } catch (error) {

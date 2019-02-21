@@ -1,13 +1,13 @@
 const db = require('./database');
 const User = require('./models/User');
-const Inventory = require('./models/Inventory');
+const Item = require('./models/Item')
 
 //define our relationships in our database using sequelize
-Inventory.belongsTo(User);
-User.hasOne(Inventory);
+Item.belongsTo(User);
+User.hasMany(Item);
 
 module.exports = {
   db,
   User,
-  Inventory,
+  Item,
 };
