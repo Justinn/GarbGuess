@@ -1,6 +1,6 @@
 const GOT_ALL_ITEMS = 'GOT_ALL_ITEMS';
 
-const gotAllItems = () => {
+const gotAllItems = (items) => {
   return {
     type: GOT_ALL_ITEMS,
     items,
@@ -8,11 +8,11 @@ const gotAllItems = () => {
 };
 
 export const getAllItems = () => {
-    return async (dispatch, getState, { axios }) => {
-      const { data } = await axios.get('/api/items');
-      dispatch(gotAllItems(data));
-    };
+  return async (dispatch, getState, { axios }) => {
+    const { data } = await axios.get('/api/items');
+    dispatch(gotAllItems(data));
   };
+};
 
 const initialState = {
   availableItems: [],
