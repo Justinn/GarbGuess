@@ -25,6 +25,14 @@ const seed = async () => {
         color: 'green',
         season: 'any',
         userId: 1,
+      }),
+      Item.create({
+        name: 'Fall Pants',
+        imageUrl: '/assets/images/fall-pants.jpg',
+        type: 'legs',
+        color: 'beige',
+        season: 'fall',
+        userId: 1,
       })
   ])
 

@@ -1,10 +1,13 @@
 const GOT_INVENTORY = 'GOT_INVENTORY';
 const ADDED_TO_INVENTORY = 'ADDED_TO_INVENTORY';
+const FILTERED_ITEMS = 'FILTERED_ITEMS';
 
-const gotInventory = inventory => {
+const filteredItems = (weather, worn, color) => {
   return {
-    type: GOT_INVENTORY,
-    inventory,
+    type: FILTERED_ITEMS,
+    weather,
+    worn,
+    color,
   };
 };
 
@@ -29,9 +32,16 @@ export const addItemToInventory = id => {
   };
 };
 
+export const filterItems = weather => {
+  return async (dispatch, getState, { axios }) => {
+    dispatch(filteredItems(weather));
+  };
+};
+
 const initialState = {
   user: {},
   inventory: [],
+  filteredItems: [],
 };
 
 const userReducer = (state = initialState, action) => {
@@ -40,6 +50,17 @@ const userReducer = (state = initialState, action) => {
       return { ...state, inventory: action.inventory };
     case ADDED_TO_INVENTORY:
       return { ...state, inventory: [...state.inventory, action.item] };
+    case FILTERED_ITEMS:
+      let items;
+      action.weather === 'any'
+        ? (items = state.inventory)
+        : (items = [
+            ...state.inventory.filter(item => item.season === action.weather),
+          ]);
+      return {
+        ...state,
+        filteredItems: items,
+      };
     default:
       return state;
   }
